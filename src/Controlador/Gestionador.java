@@ -277,6 +277,7 @@ public class Gestionador {
                 stmt.executeUpdate(String.format("DELETE FROM %s WHERE countrycode = '%s'", nombreDeTabla, id.split(",")[0] + "' AND " + "language = '" + id.split(",")[1]));
                 System.out.println("Registro eliminado");
             }
+            //xd
         } catch (SQLException e) {
             e.printStackTrace();
         } finally {
