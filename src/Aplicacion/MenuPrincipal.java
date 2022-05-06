@@ -7,18 +7,21 @@ import java.util.Scanner;
 
 public class MenuPrincipal {
     public static void main(String[] args) {
+        System.out.println("---------------------------------------------------");
         System.out.println("BIENVENIDO AL EDITOR DE BASES DE DATOS!");
+        System.out.println("---------------------------------------------------");
         System.out.println(">Escoja una opción:");
-        System.out.println("1. Ingresar datos");
-        System.out.println("2. Consulta general");
-        System.out.println("3. Consultar dato determinado");
-        System.out.println("4. Actualización de registro");
-        System.out.println("5. Eliminacion de registro");
-        System.out.println("0. Salir de la aplicación");
+        System.out.println(" >1. Ingresar datos");
+        System.out.println(" >2. Consulta general");
+        System.out.println(" >3. Consultar dato determinado");
+        System.out.println(" >4. Actualización de registro");
+        System.out.println(" >5. Eliminacion de registro");
+        System.out.println(" >0. Salir de la aplicación");
         Scanner scanner = new Scanner(System.in);
 
         System.out.println("Escojo: ");
         int opcion = scanner.nextInt();
+
         while (opcion > 5) {
             System.out.println("Elije un valor dentro del rango!!");
             System.out.println("Escojo: ");
@@ -29,37 +32,42 @@ public class MenuPrincipal {
 
         switch (opcion) {
             case 0 -> {
-                //gestionador.salir();
+                salirDeAplicacion();
             }
             case 1 -> {
-                //gestionador.ingresarDatos();
+                System.out.println("Escribe el nombre de la tabla en la que quieres insertar\n<-city->\n<-country->\n<-countrylanguage->");
+                String nombreTabla = scanner.next();
+                gestionador.insertarDatos(nombreTabla);
             }
             case 2 -> {
-                System.out.println("Introduce una tabla a consultar");
+                System.out.println("Escribe el nombre de la tabla en la que quieres insertar\n<-city->\n<-country->\n<-countrylanguage->");
                 String nombreTabla = scanner.next();
                 gestionador.consultaGeneral(nombreTabla);
             }
             case 3 -> {
-                System.out.println("Introduce una tabla a consultar");
+                System.out.println("Escribe el nombre de la tabla en la que quieres insertar\n<-city->\n<-country->\n<-countrylanguage->");
                 String nombreTabla = scanner.next();
                 System.out.println("Introduce el dato a seleccionar");
                 String dato = scanner.next();
                 gestionador.consultarDatoDeterminado(dato, nombreTabla);
             }
             case 4 -> {
-                //actualizacionRegistro()
-                System.out.println("Introduce la tabla que quieres consultar");
+                System.out.println("Escribe el nombre de la tabla en la que quieres insertar\n<-city->\n<-country->\n<-countrylanguage->");
                 String nombreTabla = scanner.next();
                 gestionador.update(nombreTabla);
             }
             case 5 -> {
-                //eliminacionRegistro()
-                System.out.println("Introduce la tabla que quieres consultar");
+                System.out.println("Escribe el nombre de la tabla en la que quieres insertar\n<-city->\n<-country->\n<-countrylanguage->");
                 String nombreTabla = scanner.next();
-                gestionador.update(nombreTabla);
+                System.out.println("Introduce la/las claves primarias (separar con comas y sin espacios si son varias Ej: ABW,Dutch )");
+                String claves = scanner.next();
+                gestionador.eliminar(nombreTabla, claves);
             }
 
         }
     }
-    //xdd xddddd
+
+    public static void salirDeAplicacion(){
+        System.exit(0);
+    }
 }
