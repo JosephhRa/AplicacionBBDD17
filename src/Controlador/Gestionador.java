@@ -1,6 +1,7 @@
 package Controlador;
 
 import java.sql.Connection;
+import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
 import java.util.Scanner;
@@ -190,5 +191,73 @@ public class Gestionador {
 
     }
 
+
+
+    /***********ALBA**********/
+    public void consultaGeneral (String nombreTabla) {
+        ConexionMySql conexion = new ConexionMySql();
+        Connection con = conexion.conectar();
+        try {
+            Statement statement = con.createStatement();
+            ResultSet rs = statement.executeQuery("SELECT * FROM " + nombreTabla);
+
+            System.out.println("-- DATOS DE TABLA " + nombreTabla.toUpperCase() + " --");
+            while (rs.next()) {
+                if (nombreTabla.equals("city")) {
+                    System.out.println("ID: " + rs.getString("ID") +
+                            " | Name: " + rs.getString("Name") +
+                            " | CountryCode: " + rs.getString("CountryCode") +
+                            " | District: " + rs.getString("District") +
+                            " | Population: " + rs.getString("Population"));
+
+                } else if (nombreTabla.equals("country")) {
+                    System.out.println("Code: " + rs.getString("Code") +
+                            " | Name: " + rs.getString("Name") +
+                            " | Continent: " + rs.getString("Continent") +
+                            " | Region: " + rs.getString("Region") +
+                            " | SurfaceArea: " + rs.getString("SurfaceArea") +
+                            " | Population: " + rs.getString("Population") +
+                            " | LifeExpectancy: " + rs.getString("LifeExpectancy") +
+                            " | GNP: " + rs.getString("GNP") +
+                            " | GNPOld: " + rs.getString("GNPOld") +
+                            " | LocalName: " + rs.getString("LocalName") +
+                            " | GovernmentForm: " + rs.getString("GovernmentForm") +
+                            " | HeadOfState: " + rs.getString("HeadOfState") +
+                            " | Capital: " + rs.getString("Capital") +
+                            " | Code2: " + rs.getString("Code2"));
+                } else if (nombreTabla.equals("countrylanguage")) {
+                    System.out.println(
+                            " | CountryCode: " + rs.getString("CountryCode") +
+                                    " | Language: " + rs.getString("Language") +
+                                    " | IsOfficial: " + rs.getString("IsOfficial") +
+                                    " | Percentage: " + rs.getString("Percentage"));
+
+                }
+            }
+        } catch (SQLException e) {
+            e.printStackTrace();
+        } finally {
+            conexion.desconectar(con);
+        }
+    }
+
+    public void consultarDatoDeterminado (String dato, String tabla) {
+        ConexionMySql conexion = new ConexionMySql();
+        Connection con = conexion.conectar();
+        try {
+            Statement statement = con.createStatement();
+            ResultSet rs = statement.executeQuery(String.format("SELECT `%s` FROM %s",dato, tabla));
+
+            while (rs.next()) {
+                System.out.println(dato + ": " + rs.getString(dato));
+            }
+
+        } catch (SQLException e) {
+            e.printStackTrace();
+
+        } finally {
+            conexion.desconectar(con);
+        }
+    }
 
 }
