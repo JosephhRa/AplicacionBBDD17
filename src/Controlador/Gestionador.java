@@ -15,75 +15,75 @@ public class Gestionador {
         Connection con = conexion.conectar();
         try {
 
-                Statement statement = con.createStatement();
-                if (nombreTabla.equals("city")) {
-                             System.out.println("Ingrese el id");
-                             int id = scan.nextInt();
-                             System.out.println("Ingrese el nombre");
-                             String name = scan.next();
-                             System.out.println("Ingrese el código de la ciudad");
-                             String countrycode = scan.next();
-                             System.out.println("Ingrese el distrito");
-                             String district = scan.next();
-                             System.out.println("Ingrese la población");
-                             int population = scan.nextInt();
-                     String datos = String.format("VALUES (%s, \"%s\", \"%s\", \"%s\", %s)",id,name,countrycode,district,population);
+            Statement statement = con.createStatement();
+            if (nombreTabla.equals("city")) {
+                System.out.println("Ingrese el id");
+                int id = scan.nextInt();
+                System.out.println("Ingrese el nombre");
+                String name = scan.next();
+                System.out.println("Ingrese el código de la ciudad");
+                String countrycode = scan.next();
+                System.out.println("Ingrese el distrito");
+                String district = scan.next();
+                System.out.println("Ingrese la población");
+                int population = scan.nextInt();
+                String datos = String.format("VALUES (%s, \"%s\", \"%s\", \"%s\", %s)",id,name,countrycode,district,population);
 
-                    statement.execute("INSERT INTO"+ " " + nombreTabla+ "(id,name,countrycode,district,population)"+ " " + datos);
-                }else if (nombreTabla.equals("country")){
+                statement.execute("INSERT INTO"+ " " + nombreTabla+ "(id,name,countrycode,district,population)"+ " " + datos);
+            }else if (nombreTabla.equals("country")){
 
-                            System.out.println("Ingrese el código");
-                            String code = scan.next();
-                            System.out.println("Ingrese el nombre");
-                            String name = scan.next();
-                            System.out.println("Ingrese el continente");
-                            String continent = scan.next();
-                            System.out.println("Ingrese la región");
-                            String region = scan.next();
-                            System.out.println("Ingrese la surfacearea");
-                            int surfacearea = scan.nextInt();
-                            System.out.println("Ingrese el año de independencia");
-                            int indepyear = scan.nextInt();
-                            System.out.println("Ingrese la población");
-                            int population = scan.nextInt();
-                            System.out.println("Ingrese la esperanza de vida");
-                            int lifeexpectancy = scan.nextInt();
-                            System.out.println("Ingrese el GNP");
-                            int gnp = scan.nextInt();
-                            System.out.println("Ingrese el GNPOld");
-                            int gnpold = scan.nextInt();
-                            System.out.println("Ingrese el nombre local");
-                            String localname = scan.next();
-                            System.out.println("Ingrese la forma de gobierno");
-                            String governmentform = scan.next();
-                            System.out.println("Ingrese la cabeza de estado");
-                            String headofstate = scan.next();
-                            System.out.println("Ingrese la capital");
-                            int capital = scan.nextInt();
-                            System.out.println("Ingrese el code2");
-                            String code2 = scan.next();
+                System.out.println("Ingrese el código");
+                String code = scan.next();
+                System.out.println("Ingrese el nombre");
+                String name = scan.next();
+                System.out.println("Ingrese el continente");
+                String continent = scan.next();
+                System.out.println("Ingrese la región");
+                String region = scan.next();
+                System.out.println("Ingrese la surfacearea");
+                int surfacearea = scan.nextInt();
+                System.out.println("Ingrese el año de independencia");
+                int indepyear = scan.nextInt();
+                System.out.println("Ingrese la población");
+                int population = scan.nextInt();
+                System.out.println("Ingrese la esperanza de vida");
+                int lifeexpectancy = scan.nextInt();
+                System.out.println("Ingrese el GNP");
+                int gnp = scan.nextInt();
+                System.out.println("Ingrese el GNPOld");
+                int gnpold = scan.nextInt();
+                System.out.println("Ingrese el nombre local");
+                String localname = scan.next();
+                System.out.println("Ingrese la forma de gobierno");
+                String governmentform = scan.next();
+                System.out.println("Ingrese la cabeza de estado");
+                String headofstate = scan.next();
+                System.out.println("Ingrese la capital");
+                int capital = scan.nextInt();
+                System.out.println("Ingrese el code2");
+                String code2 = scan.next();
 
-                    String datos = String.format("VALUES (\"%s\",\"%s\",\"%s\",\"%s\",%s,%s,%s,%s,%s,%s,\"%s\",\"%s\",\"%s\",%s,\"%s\")",code,name,continent,
-                                    region,surfacearea,indepyear,population,lifeexpectancy,gnp,gnpold,localname,governmentform,headofstate,capital,code2);
+                String datos = String.format("VALUES (\"%s\",\"%s\",\"%s\",\"%s\",%s,%s,%s,%s,%s,%s,\"%s\",\"%s\",\"%s\",%s,\"%s\")",code,name,continent,
+                        region,surfacearea,indepyear,population,lifeexpectancy,gnp,gnpold,localname,governmentform,headofstate,capital,code2);
 
-                             statement.execute("INSERT INTO"+ " " +nombreTabla+"(code,name,continent," +
-                                     "region,surfacearea,indepyear,population,lifeexpectancy,gnp,gnpold,localname," +
-                                     "governmentform,headofstate,capital,code2)"+ " " + datos);
+                statement.execute("INSERT INTO"+ " " +nombreTabla+"(code,name,continent," +
+                        "region,surfacearea,indepyear,population,lifeexpectancy,gnp,gnpold,localname," +
+                        "governmentform,headofstate,capital,code2)"+ " " + datos);
 
-                }else if(nombreTabla.equals("countrylanguage")){
+            }else if(nombreTabla.equals("countrylanguage")){
 
-                            System.out.println("Ingrese el countrycode");
-                            String countrycode = scan.next();
-                            System.out.println("Ingrese el lenguaje");
-                            String language = scan.next();
-                            System.out.println("Ingrese si el leguaje es oficial");
-                            String isofficial = scan.next();
-                            Boolean.parseBoolean(isofficial);
-                            System.out.println("Ingrese el porcentaje");
-                            String percentage = scan.next();
-                            String datos = String.format("VALUES(\"%s\",\"%s\",\"%s\",%s)", countrycode,language,isofficial,percentage);
-                            statement.execute("INSERT INTO"+ " " +nombreTabla+"(countrycode,language,isofficial,percentage)"+ " " +datos);
-                }
+                System.out.println("Ingrese el countrycode");
+                String countrycode = scan.next();
+                System.out.println("Ingrese el lenguaje");
+                String language = scan.next();
+                System.out.println("Ingrese si el leguaje es oficial");
+                String isofficial = scan.next();
+                Boolean.parseBoolean(isofficial);
+                System.out.println("Ingrese el porcentaje");
+                String percentage = scan.next();
+                String datos = String.format("VALUES(\"%s\",\"%s\",\"%s\",%s)", countrycode,language,isofficial,percentage);
+                statement.execute("INSERT INTO"+ " " +nombreTabla+"(countrycode,language,isofficial,percentage)"+ " " +datos);
+            }
         } catch (SQLException e) {
             System.err.println("Error al insertar");
             e.printStackTrace();
@@ -104,7 +104,7 @@ public class Gestionador {
 
                 System.out.println("Escoja los datos que desea modificar.");
                 System.out.println("Presione 1 para cambiar el nombre de la tabla.\nPresione 2 para cambiar el distrito." +
-                                    "\nPresione 3 para cambiar la población.\nPresione 4 para cambiar todos los datos.");
+                        "\nPresione 3 para cambiar la población.\nPresione 4 para cambiar todos los datos.");
                 int cambios;
                 cambios = scan.nextInt();
 
@@ -115,7 +115,7 @@ public class Gestionador {
                     String name = scan.next();
 
                     statement.execute("UPDATE "+ " " + nombreTabla + " SET name = '" +name+ "" +
-                                         "' WHERE id = '"+id+"'");
+                            "' WHERE id = '"+id+"'");
                 }else if (cambios == 2){
                     System.out.println("Ingrese el id");
                     int id = scan.nextInt();
@@ -123,7 +123,7 @@ public class Gestionador {
                     String district = scan.next();
 
                     statement.execute("UPDATE "+ " " + nombreTabla + " SET District= '"
-                                        +district+"' WHERE id = '"+id+"'");
+                            +district+"' WHERE id = '"+id+"'");
 
                 }else if (cambios == 3){
                     System.out.println("Ingrese el id");
@@ -132,7 +132,7 @@ public class Gestionador {
                     int population = scan.nextInt();
 
                     statement.execute("UPDATE "+ " " + nombreTabla + " SET Population= '"
-                                         +population+"' WHERE id = '"+id+"'");
+                            +population+"' WHERE id = '"+id+"'");
                 }else if (cambios == 4) {
 
                     System.out.println("Ingrese el id");
@@ -153,24 +153,32 @@ public class Gestionador {
                 String code = scan.next();
                 System.out.println("Ingrese el nombre");
                 String name = scan.next();
-                System.out.println("Ingrese el lenguaje");
-                String language = scan.next();
-                System.out.println("La tabla ha sido renombrada correctamente");
-
-                statement.execute("UPDATE " + " " +nombreTabla+ " SET name = '" +name+"' WHERE code ='"+code+"'");
-            }else if(nombreTabla.equals("countrylanguage")){
-                System.out.println("Ingrese el countrycode");
-                String countrycode = scan.next();
-                System.out.println("Ingrese el lenguaje");
-                String language = scan.next();
-                System.out.println("Ingrese el porcentaje");
-                String percentage = scan.next();
-
-                System.out.println("La tabla ha sido modificada correctamente");
-
-                statement.execute("UPDATE " + " " +nombreTabla+ " SET percentage = '" +percentage+"' WHERE countrycode =" +
-                        "'"+countrycode+"' AND language =" +
-                        "'"+language+"'");
+                System.out.println("Ingrese el continente");
+                String continent = scan.next();
+                System.out.println("Ingrese la región");
+                String region = scan.next();
+                System.out.println("Ingrese la surfacearea");
+                int surfacearea = scan.nextInt();
+                System.out.println("Ingrese el año de independencia");
+                int indepyear = scan.nextInt();
+                System.out.println("Ingrese la población");
+                int population = scan.nextInt();
+                System.out.println("Ingrese la esperanza de vida");
+                int lifeexpectancy = scan.nextInt();
+                System.out.println("Ingrese el GNP");
+                int gnp = scan.nextInt();
+                System.out.println("Ingrese el GNPOld");
+                int gnpold = scan.nextInt();
+                System.out.println("Ingrese el nombre local");
+                String localname = scan.next();
+                System.out.println("Ingrese la forma de gobierno");
+                String governmentform = scan.next();
+                System.out.println("Ingrese la cabeza de estado");
+                String headofstate = scan.next();
+                System.out.println("Ingrese la capital");
+                int capital = scan.nextInt();
+                System.out.println("Ingrese el code2");
+                String code2 = scan.next();
 
             }
 
@@ -185,7 +193,7 @@ public class Gestionador {
 
 
 
-    /***********ALBA xd**********/
+    /***********ALBA**********/
     public void consultaGeneral (String nombreTabla) {
         ConexionMySql conexion = new ConexionMySql();
         Connection con = conexion.conectar();
@@ -249,6 +257,31 @@ public class Gestionador {
 
         } finally {
             conexion.desconectar(con);
+        }
+    }
+
+    public void eliminar (String nombreDeTabla, String id) {
+        ConexionMySql conexion = new ConexionMySql();
+        Connection conn = conexion.conectar();
+        try {
+            if (nombreDeTabla.equals("city")) {
+                Statement stmt = conn.createStatement();
+                stmt.executeUpdate(String.format("DELETE FROM %s WHERE id = '%s'", nombreDeTabla, id));
+                System.out.println("Registro eliminado");
+            } else if (nombreDeTabla.equals("country")) {
+                Statement stmt = conn.createStatement();
+                stmt.executeUpdate(String.format("DELETE FROM %s WHERE code = '%s'", nombreDeTabla, id));
+                System.out.println("Registro eliminado");
+            } if (nombreDeTabla.equals("countrylanguage")) {
+                Statement stmt = conn.createStatement();
+                stmt.executeUpdate(String.format("DELETE FROM %s WHERE countrycode = '%s'", nombreDeTabla, id.split(",")[0] + "' AND " + "language = '" + id.split(",")[1]));
+                System.out.println("Registro eliminado");
+            }
+            //xd
+        } catch (SQLException e) {
+            e.printStackTrace();
+        } finally {
+            conexion.desconectar(conn);
         }
     }
 
