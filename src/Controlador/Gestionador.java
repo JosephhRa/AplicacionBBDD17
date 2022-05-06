@@ -185,7 +185,7 @@ public class Gestionador {
 
 
 
-    /***********ALBA**********/
+    /***********ALBA xd**********/
     public void consultaGeneral (String nombreTabla) {
         ConexionMySql conexion = new ConexionMySql();
         Connection con = conexion.conectar();
