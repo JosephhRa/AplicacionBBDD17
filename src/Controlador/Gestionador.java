@@ -8,6 +8,14 @@ import java.util.Scanner;
 
 public class Gestionador {
 
+    /*
+    * ANALISIS DE REQUERIMIENTOS
+    * Eliminar algo en especifico en cualquier tabla.
+    * Vamos a poder insertar, borrar y modificar registros en todas las tablas.
+    * Una opcion para salir de la aplicacion.
+    * Att. Miguel Angel, Joseph y Alba.
+     */
+
     public void insertarDatos(String nombreTabla){
 
         Scanner scan = new Scanner(System.in);
