@@ -11,7 +11,7 @@ public class ConexionMySql {
         try {
             con = DriverManager.getConnection(
                     "jdbc:mysql://localhost/world", //url
-                    "root", //user
+                    "root", //user xd
                     "" //password
             );
 
