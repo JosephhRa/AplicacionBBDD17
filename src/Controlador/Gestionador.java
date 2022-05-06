@@ -153,32 +153,24 @@ public class Gestionador {
                 String code = scan.next();
                 System.out.println("Ingrese el nombre");
                 String name = scan.next();
-                System.out.println("Ingrese el continente");
-                String continent = scan.next();
-                System.out.println("Ingrese la región");
-                String region = scan.next();
-                System.out.println("Ingrese la surfacearea");
-                int surfacearea = scan.nextInt();
-                System.out.println("Ingrese el año de independencia");
-                int indepyear = scan.nextInt();
-                System.out.println("Ingrese la población");
-                int population = scan.nextInt();
-                System.out.println("Ingrese la esperanza de vida");
-                int lifeexpectancy = scan.nextInt();
-                System.out.println("Ingrese el GNP");
-                int gnp = scan.nextInt();
-                System.out.println("Ingrese el GNPOld");
-                int gnpold = scan.nextInt();
-                System.out.println("Ingrese el nombre local");
-                String localname = scan.next();
-                System.out.println("Ingrese la forma de gobierno");
-                String governmentform = scan.next();
-                System.out.println("Ingrese la cabeza de estado");
-                String headofstate = scan.next();
-                System.out.println("Ingrese la capital");
-                int capital = scan.nextInt();
-                System.out.println("Ingrese el code2");
-                String code2 = scan.next();
+                System.out.println("Ingrese el lenguaje");
+                String language = scan.next();
+                System.out.println("La tabla ha sido renombrada correctamente");
+
+                statement.execute("UPDATE " + " " +nombreTabla+ " SET name = '" +name+"' WHERE code ='"+code+"'");
+            }else if(nombreTabla.equals("countrylanguage")){
+                System.out.println("Ingrese el countrycode");
+                String countrycode = scan.next();
+                System.out.println("Ingrese el lenguaje");
+                String language = scan.next();
+                System.out.println("Ingrese el porcentaje");
+                String percentage = scan.next();
+
+                System.out.println("La tabla ha sido modificada correctamente");
+
+                statement.execute("UPDATE " + " " +nombreTabla+ " SET percentage = '" +percentage+"' WHERE countrycode =" +
+                        "'"+countrycode+"' AND language =" +
+                        "'"+language+"'");
 
             }
 

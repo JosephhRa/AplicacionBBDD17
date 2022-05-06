@@ -48,9 +48,15 @@ public class MenuPrincipal {
             }
             case 4 -> {
                 //actualizacionRegistro()
+                System.out.println("Introduce la tabla que quieres consultar");
+                String nombreTabla = scanner.next();
+                gestionador.update(nombreTabla);
             }
             case 5 -> {
                 //eliminacionRegistro()
+                System.out.println("Introduce la tabla que quieres consultar");
+                String nombreTabla = scanner.next();
+                gestionador.update(nombreTabla);
             }
 
         }
