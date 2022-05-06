@@ -260,4 +260,28 @@ public class Gestionador {
         }
     }
 
+    public void eliminar (String nombreDeTabla, String id) {
+        ConexionMySql conexion = new ConexionMySql();
+        Connection conn = conexion.conectar();
+        try {
+            if (nombreDeTabla.equals("city")) {
+                Statement stmt = conn.createStatement();
+                stmt.executeUpdate(String.format("DELETE FROM %s WHERE id = '%s'", nombreDeTabla, id));
+                System.out.println("Registro eliminado");
+            } else if (nombreDeTabla.equals("country")) {
+                Statement stmt = conn.createStatement();
+                stmt.executeUpdate(String.format("DELETE FROM %s WHERE code = '%s'", nombreDeTabla, id));
+                System.out.println("Registro eliminado");
+            } if (nombreDeTabla.equals("countrylanguage")) {
+                Statement stmt = conn.createStatement();
+                stmt.executeUpdate(String.format("DELETE FROM %s WHERE countrycode = '%s'", nombreDeTabla, id.split(",")[0] + "' AND " + "language = '" + id.split(",")[1]));
+                System.out.println("Registro eliminado");
+            }
+        } catch (SQLException e) {
+            e.printStackTrace();
+        } finally {
+            conexion.desconectar(conn);
+        }
+    }
+
 }
